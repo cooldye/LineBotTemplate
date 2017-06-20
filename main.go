@@ -87,8 +87,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					out := fmt.Sprintf("心動動")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "1") {
-					out1 :=
-						bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(out)).Do()
+					//out1 :=
+					//	bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(out)).Do()
 				} else if strings.Contains(message.Text, "全頻廣播") {
 
 					//IP := event.ReplyToken //飲茶
