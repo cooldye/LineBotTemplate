@@ -61,24 +61,21 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				//----------------------------------------------------------------------
 				//----------------關鍵字回復--------------------
 				if strings.Contains(message.Text, "/help") || strings.Contains(message.Text, "/HELP") {
-					out := fmt.Sprintf("你好 我是Lucy 目前能用的指令有\n 愛你/妳\n 你/妳好\n 海德格\n 天線寶寶\n 幾點了\n 姆咪姆咪")
+					out := fmt.Sprintf("HELP")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "愛你") || strings.Contains(message.Text, "愛妳") {
 					//IP := event.ReplyToken
-					out := fmt.Sprintf("謝謝愛我 ，但LINEBOT依然可惡")
+					out := fmt.Sprintf("I Love you, too")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(event.ReplyToken+" : "+out)).Do()
 				} else if strings.Contains(message.Text, "你好") || strings.Contains(message.Text, "妳好") {
-					out := fmt.Sprintf("你好")
+					out := fmt.Sprintf("你以為你是天線寶寶嗎?")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 					//bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(message.OriginalContentURL+message.PreviewImageURL)).Do()
-				} else if strings.Contains(message.Text, "海德格") {
-					out := fmt.Sprintf("救我")
-					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
-				} else if strings.Contains(message.Text, "天線寶寶") {
-					out := fmt.Sprintf("是你")
+				} else if strings.Contains(message.Text, "幹") {
+					out := fmt.Sprintf("尛")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "幾點了") {
-					out := fmt.Sprintf("要多久")
+					out := fmt.Sprintf("不知道")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "c8763") || strings.Contains(message.Text, "C8763") || strings.Contains(message.Text, "星爆氣流斬") {
 					out := fmt.Sprintf("噓")
