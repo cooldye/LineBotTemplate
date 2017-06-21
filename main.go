@@ -80,7 +80,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 					}
 					
-					if strings.Contains(message.Text, "聯絡") {
+					if strings.Contains(message.Text, "電話") {
 						out := fmt.Sprintf("(02) 8178-3177 \n 梁韡峻 ext.12325 \n 翁誠鴻 ext.12332 \n 黃雋幃 ext.12371")
 						bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 					}
