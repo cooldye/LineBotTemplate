@@ -78,9 +78,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					if strings.Contains(message.Text, "環境") {
 						out := fmt.Sprintf("172.30.5.89 RbESTMTPBWB01 \n 10.88.20.112 RbESTMTPAWB01 \n 10.88.20.113 RbESTMTPCV01 \n 10.88.20.115 RbESTMTTAP01")
 						bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
-					}
-					
-					if strings.Contains(message.Text, "電話") {
+					} else if strings.Contains(message.Text, "電話") {
 						out := fmt.Sprintf("(02) 8178-3177 \n 梁韡峻 ext.12325 \n 翁誠鴻 ext.12332 \n 黃雋幃 ext.12371")
 						bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 					}
