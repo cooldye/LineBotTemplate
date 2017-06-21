@@ -74,6 +74,12 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if strings.Contains(message.Text, "幹") {
 					out := fmt.Sprintf("尛")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
+				} else if strings.Contains(message.Text, "王道銀行") {
+					if strings.Contains(message.Text, "環境") {
+						out := fmt.Sprintf("172.30.5.89 RbESTMTPBWB01 \n 10.88.20.112 RbESTMTPAWB01")
+						bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
+					}
+					
 				} else if strings.Contains(message.Text, "幾點了") {
 					out := fmt.Sprintf("不知道")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
