@@ -92,9 +92,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if strings.Contains(message.Text, "姆咪姆咪") {
 					out := fmt.Sprintf("心動動")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
-				} else if strings.Contains(message.Text, "test") {
-					originalContentURL := "http://cdn.news.ebc.net.tw/images/2017/05/05/149397168373560x6eebyS1u.jpg"
-					previewImageURL := "http://cdn.news.ebc.net.tw/images/2017/05/05/149397168373560x6eebyS1u.jpg"
+				} else if strings.Contains(message.Text, "???") {
+					originalContentURL := "https://www.hahatai.com/sites/default/files/u1031/8_2.jpg.pagespeed.ce.9yo2iS_Cxl.jpg"
+					previewImageURL := "https://www.hahatai.com/sites/default/files/u1031/8_2.jpg.pagespeed.ce.9yo2iS_Cxl.jpg"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "1") {
 					//out1 :=
