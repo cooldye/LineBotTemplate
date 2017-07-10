@@ -93,8 +93,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					out := fmt.Sprintf("心動動")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "test") {
-					originalContentURL := "https://dl.dropboxusercontent.com/u/358152/linebot/resource/gohper.jpg"
-					previewImageURL := "https://dl.dropboxusercontent.com/u/358152/linebot/resource/gohper.jpg"
+					originalContentURL := "http://cdn.news.ebc.net.tw/images/2017/05/05/149397168373560x6eebyS1u.jpg"
+					previewImageURL := "http://cdn.news.ebc.net.tw/images/2017/05/05/149397168373560x6eebyS1u.jpg"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "1") {
 					//out1 :=
