@@ -51,6 +51,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
+				
+			var cnt int = 0
 
 			case *linebot.TextMessage:
 				//----------------回聲範例---------------------
