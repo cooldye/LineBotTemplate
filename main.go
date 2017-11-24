@@ -52,7 +52,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 				
-				var cnt = 0;
+				var cnt = 0
 
 			case *linebot.TextMessage:
 				//----------------回聲範例---------------------
