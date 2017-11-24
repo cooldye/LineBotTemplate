@@ -76,7 +76,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if strings.Contains(message.Text, "幹") {
 					cnt += 1
 					if (cnt==3) {
-						cnt:=0
+						cnt := 0
 						out := fmt.Sprintf("玩我玩夠了沒")
 						bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 					} else {
