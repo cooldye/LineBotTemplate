@@ -75,7 +75,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					//bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(message.OriginalContentURL+message.PreviewImageURL)).Do()
 				} else if strings.Contains(message.Text, "幹") {
 					count := count +1;
-					if (count = 3) {
+					if (count == 3) {
 						originalContentURL := "https://vignette.wikia.nocookie.net/evchk/images/1/1a/552731_3511476716069_1546412092_33028619_504512625_n.jpg/revision/latest?cb=20120510095459"
 						previewImageURL := "https://vignette.wikia.nocookie.net/evchk/images/1/1a/552731_3511476716069_1546412092_33028619_504512625_n.jpg/revision/latest?cb=20120510095459"
 						bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
