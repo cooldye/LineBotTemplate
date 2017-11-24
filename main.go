@@ -51,8 +51,6 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
-				
-			var count = 0;
 
 			case *linebot.TextMessage:
 				//----------------回聲範例---------------------
@@ -74,15 +72,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 					//bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(message.OriginalContentURL+message.PreviewImageURL)).Do()
 				} else if strings.Contains(message.Text, "幹") {
-					count := count +1;
-					if (count == 3) {
-						originalContentURL := "https://vignette.wikia.nocookie.net/evchk/images/1/1a/552731_3511476716069_1546412092_33028619_504512625_n.jpg/revision/latest?cb=20120510095459"
-						previewImageURL := "https://vignette.wikia.nocookie.net/evchk/images/1/1a/552731_3511476716069_1546412092_33028619_504512625_n.jpg/revision/latest?cb=20120510095459"
-						bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
-					} else {
-						out := fmt.Sprintf("尛")
-						bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
-					}
+					out := fmt.Sprintf("尛")
+					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "王道") {
 					if strings.Contains(message.Text, "環境") {
 						out := fmt.Sprintf("172.30.5.89 RbESTMTPBWB01 \n 10.88.20.112 RbESTMTPAWB01 \n 10.88.20.113 RbESTMTPCV01 \n 10.88.20.115 RbESTMTTAP01")
