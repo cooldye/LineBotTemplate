@@ -112,8 +112,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					out := fmt.Sprintf("心動動")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "好了") || strings.Contains(message.Text, "好惹"){		
-					originalContentURL := "http://images.uncyc.org/zh-tw/thumb/0/08/Verygood.jpg/240px-Verygood.jpg"
-					previewImageURL := "http://images.uncyc.org/zh-tw/thumb/0/08/Verygood.jpg/240px-Verygood.jpg"
+					originalContentURL := "https://www.cool-gif.com/media/gif/48/18/4818634f4c87146039e774c2bc752be1/cool.gif"
+					previewImageURL := "https://www.cool-gif.com/media/gif/48/18/4818634f4c87146039e774c2bc752be1/cool.gif"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "大") {	
 					originalContentURL := "https://pic.pimg.tw/ash1118/1445931964-184045615.jpg"
