@@ -14,12 +14,16 @@ package main
 
 import (
 	"fmt"
+	"io"
+	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
+	"os/exec"
 	"strings"
 	"math/rand"
 	"time"
+	"path/filepath"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
