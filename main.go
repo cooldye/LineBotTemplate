@@ -63,7 +63,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				if strings.Contains(message.Text, "/help") || strings.Contains(message.Text, "/HELP") {
 					out := fmt.Sprintf("HELP")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
-				} else if message.Text=="吃什麼"{
+				} else if strings.Contains(message.Text, "吃"){
 					rand.Seed(time.Now().UnixNano()) // Try changing this number!
 					answers := []string{
 						"吃飯",
