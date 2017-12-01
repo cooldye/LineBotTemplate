@@ -143,10 +143,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				
 			case *linebot.LocationMessage:
 				bot.ReplyMessage(event.ReplyToken,linebot.NewLocationMessage(
-				msg.Title,
-				msg.Address,
-				msg.Latitude,
-				msg.Longitude)).Do()
+				"Disney Resort",
+				"〒279-0031 千葉県浦安市舞浜１−１",
+				35.632211,
+				139.881234)).Do()
 			    
 
 
