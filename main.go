@@ -14,16 +14,12 @@ package main
 
 import (
 	"fmt"
-	"io"
-	"io/ioutil"
 	"log"
 	"net/http"
 	"os"
-	"os/exec"
 	"strings"
 	"math/rand"
 	"time"
-	"path/filepath"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
@@ -118,15 +114,15 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					previewImageURL := "https://upload.wikimedia.org/wikipedia/zh/0/00/Miku_Hatsune.png"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewVideoMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "幾點") {
-					template := linebot.NewButtonsTemplate(
+					template := bot.NewButtonsTemplate(
 						"", "", "Select date / time !",
-						linebot.NewDatetimePickerTemplateAction("date", "DATE", "date", "", "", ""),
-						linebot.NewDatetimePickerTemplateAction("time", "TIME", "time", "", "", ""),
-						linebot.NewDatetimePickerTemplateAction("datetime", "DATETIME", "datetime", "", "", ""),
+						bot.NewDatetimePickerTemplateAction("date", "DATE", "date", "", "", ""),
+						bot.NewDatetimePickerTemplateAction("time", "TIME", "time", "", "", ""),
+						bot.NewDatetimePickerTemplateAction("datetime", "DATETIME", "datetime", "", "", ""),
 					)
-					if _, err := app.bot.ReplyMessage(
+					if _, err := bot.ReplyMessage(
 						replyToken,
-						linebot.NewTemplateMessage("Datetime pickers alt text", template),
+						bot.NewTemplateMessage("Datetime pickers alt text", template),
 					).Do(); err != nil {
 						return err
 					}
