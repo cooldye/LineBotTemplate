@@ -20,6 +20,7 @@ import (
 	"strings"
 	"math/rand"
 	"time"
+	"github.com/leekchan/timeutil"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
