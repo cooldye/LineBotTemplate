@@ -111,6 +111,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if strings.Contains(message.Text, "姆咪姆咪") {
 					out := fmt.Sprintf("心動動")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
+				} else if strings.Contains(message.Text, "...") {
+					originalContentURL := "https://pic.pimg.tw/chenwei389/1448377600-433737766_n.jpg"
+					previewImageURL := "https://pic.pimg.tw/chenwei389/1448377600-433737766_n.jpg"
+					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "煩") {	
 					originalContentURL := "https://i.ytimg.com/vi/4pKMRvrW69s/hqdefault.jpg"
 					previewImageURL := "https://i.ytimg.com/vi/4pKMRvrW69s/hqdefault.jpg"
