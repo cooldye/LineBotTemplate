@@ -63,6 +63,17 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				if strings.Contains(message.Text, "/help") || strings.Contains(message.Text, "/HELP") {
 					out := fmt.Sprintf("HELP")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
+				} else if message.Text=="吃什麼"{
+					rand.Seed(time.Now().UnixNano()) // Try changing this number!
+					answers := []string{
+						"吃飯",
+						"吃麵",
+						"吃水餃",
+						"吃炸雞",
+						"吃PIZZA",
+						"吃手手",
+					}
+					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(answers[rand.Intn(len(answers))])).Do()
 				} else if strings.Contains(message.Text, "愛你") || strings.Contains(message.Text, "愛妳") {
 					//IP := event.ReplyToken
 					out := fmt.Sprintf("I Love you, too")
