@@ -123,7 +123,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					originalContentURL := "https://pic.pimg.tw/chenwei389/1448377600-433737766_n.jpg"
 					previewImageURL := "https://pic.pimg.tw/chenwei389/1448377600-433737766_n.jpg"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
-				} else if strings.Contains(message.Text, "煩") {	
+				} else if strings.Contains(message.Text, "表示:") {	
 					originalContentURL := "https://i.ytimg.com/vi/4pKMRvrW69s/hqdefault.jpg"
 					previewImageURL := "https://i.ytimg.com/vi/4pKMRvrW69s/hqdefault.jpg"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
