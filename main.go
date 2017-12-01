@@ -114,12 +114,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					previewImageURL := "https://upload.wikimedia.org/wikipedia/zh/0/00/Miku_Hatsune.png"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewVideoMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "哪") {
-					title := "Disney Resort"
-					address := "〒279-0031 千葉県浦安市舞浜１−１"
-					lat := 35.632211
-					lon := 139.881234
-					message := linebot.NewLocationMessage(title, address, lat, lon)
-					bot.ReplyMessage(replyToken, message)
+					bot.ReplyMessage(event.ReplyToken, linebot.NewLocationMessage("Disney Resort", "〒279-0031 千葉県浦安市舞浜１−１", 35.632211, 139.881234))
 				} else if strings.Contains(message.Text, "全頻廣播") {
 
 					//IP := event.ReplyToken //飲茶
