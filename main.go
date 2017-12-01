@@ -120,7 +120,12 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						linebot.NewDatetimePickerTemplateAction("time", "TIME", "time", "", "", ""),
 						linebot.NewDatetimePickerTemplateAction("datetime", "DATETIME", "datetime", "", "", ""),
 					)
-					bot.ReplyMessage("Datetime pickers alt text", template).Do()
+					if _, err := app.bot.ReplyMessage(
+						replyToken,
+						linebot.NewTemplateMessage("Datetime pickers alt text", template),
+					).Do(); err != nil {
+						return err
+					}
 				} else if strings.Contains(message.Text, "全頻廣播") {
 
 					//IP := event.ReplyToken //飲茶
