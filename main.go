@@ -142,8 +142,13 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			//----------------------------------------------------------------------
 				
 			case *linebot.LocationMessage:
+				bot.ReplyMessage(event.ReplyToken,linebot.NewLocationMessage(
+				msg.Title,
+				msg.Address,
+				msg.Latitude,
+				msg.Longitude)).Do()
 			    
-			}
+
 
 			case *linebot.ImageMessage:
 				//if message.ID == "RS232.jpg" {
