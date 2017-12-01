@@ -18,6 +18,8 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"math/rand"
+	"time"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
