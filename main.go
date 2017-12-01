@@ -76,7 +76,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						"吃手手",
 					}
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(answers[rand.Intn(len(answers))])).Do()
-				} else if strings.Contains(message.Text, "bye"){
+				} else if strings.Contains(message.Text, "bye") || strings.Contains(message.Text, "哭") {
 					bot.ReplyMessage(event.ReplyToken,linebot.NewStickerMessage("3","187")).Do()
 				} else if strings.Contains(message.Text, "now"){
 					now := time.Now()
