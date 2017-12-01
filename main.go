@@ -111,7 +111,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if strings.Contains(message.Text, "姆咪姆咪") {
 					out := fmt.Sprintf("心動動")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
-				} else if strings.Contains(message.Text, "好了") || strings.Contains(message.Text, "好惹"){		
+				} else if strings.Contains(message.Text, "好了") || strings.Contains(message.Text, "好惹") || strings.Contains(message.Text, "水喔"){		
 					originalContentURL := "https://www.cool-gif.com/media/gif/48/18/4818634f4c87146039e774c2bc752be1/cool.gif"
 					previewImageURL := "https://www.cool-gif.com/media/gif/48/18/4818634f4c87146039e774c2bc752be1/cool.gif"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
