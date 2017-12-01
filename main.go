@@ -78,8 +78,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(answers[rand.Intn(len(answers))])).Do()
 				} else if strings.Contains(message.Text, "now"){
 					now := time.Now()
-					NowT := now.Year() + "/" + now.Month() + "/" + now.Day()
-                        		bot.ReplyMessage(event.ReplyToken,linebot.NewTextMessage(NowT)).Do()
+					out := now.Format(time.RFC3339))
+                        		bot.ReplyMessage(event.ReplyToken,linebot.NewTextMessage().Do()
 				} else if strings.Contains(message.Text, "愛你") || strings.Contains(message.Text, "愛妳") {
 					//IP := event.ReplyToken
 					out := fmt.Sprintf("I Love you, too")
