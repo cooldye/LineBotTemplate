@@ -78,7 +78,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(answers[rand.Intn(len(answers))])).Do()
 				} else if strings.Contains(message.Text, "now"){
 					now := time.Now()
-					out := now.Format(time.RFC3339))
+					out := now.Format(time.RFC3339)
                         		bot.ReplyMessage(event.ReplyToken,linebot.NewTextMessage(out).Do()
 				} else if strings.Contains(message.Text, "愛你") || strings.Contains(message.Text, "愛妳") {
 					//IP := event.ReplyToken
