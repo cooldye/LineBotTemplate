@@ -20,7 +20,6 @@ import (
 	"strings"
 	"math/rand"
 	"time"
-	"github.com/leekchan/timeutil"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
@@ -78,9 +77,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					}
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(answers[rand.Intn(len(answers))])).Do()
 				} else if strings.Contains(message.Text, "now"){
-                        		n := time.Now()
-                        		NowT := timeutil.Strftime(&n,"%Y年%m月%d日%H時%M分%S秒")
-                        		bot.ReplyMessage(event.ReplyToken,linebot.NewTextMessage(NowT)).Do()
+                        		bot.ReplyMessage(event.ReplyToken,linebot.NewTextMessage(time.Now())).Do()
 				} else if strings.Contains(message.Text, "愛你") || strings.Contains(message.Text, "愛妳") {
 					//IP := event.ReplyToken
 					out := fmt.Sprintf("I Love you, too")
