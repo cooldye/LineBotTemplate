@@ -113,19 +113,6 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					originalContentURL := "https://s65.youmaker.com/flv/2014/2-14/mp4909826563a3583eddc78f4a5da9cf3bbdeffecf79065.mp4"
 					previewImageURL := "https://upload.wikimedia.org/wikipedia/zh/0/00/Miku_Hatsune.png"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewVideoMessage(originalContentURL, previewImageURL)).Do()
-				} else if strings.Contains(message.Text, "幾點") {
-					template := linebot.NewButtonsTemplate(
-						"", "", "Select date / time !",
-						linebot.NewDatetimePickerTemplateAction("date", "DATE", "date", "", "", ""),
-						linebot.NewDatetimePickerTemplateAction("time", "TIME", "time", "", "", ""),
-						linebot.NewDatetimePickerTemplateAction("datetime", "DATETIME", "datetime", "", "", ""),
-					)
-					if _, err := bot.ReplyMessage(
-						replyToken,
-						linebot.NewTemplateMessage("Datetime pickers alt text", template),
-					).Do(); err != nil {
-						return err
-					}
 				} else if strings.Contains(message.Text, "全頻廣播") {
 
 					//IP := event.ReplyToken //飲茶
