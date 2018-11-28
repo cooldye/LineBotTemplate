@@ -82,6 +82,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					now := time.Now()
 					out := now.Format(time.RFC3339)
 					bot.ReplyMessage(event.ReplyToken,linebot.NewTextMessage(out)).Do()
+				} else if strings.Contains(message.Text, "到了") {
+					//IP := event.ReplyToken
+					out := fmt.Sprintf("胡了! 大三元、混一色、對對胡、北風、無字無花、平胡...106台!!")
+					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(event.ReplyToken+" : "+out)).Do()
 				} else if strings.Contains(message.Text, "愛你") || strings.Contains(message.Text, "愛妳") {
 					//IP := event.ReplyToken
 					out := fmt.Sprintf("I Love you, too")
