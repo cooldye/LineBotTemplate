@@ -95,7 +95,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 					//bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(message.OriginalContentURL+message.PreviewImageURL)).Do()
 				} else if strings.Contains(message.Text, "幹") {
-					out := fmt.Sprintf("尛尛尛")
+					out := fmt.Sprintf("尛")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "王道") {
 					if strings.Contains(message.Text, "環境") {
