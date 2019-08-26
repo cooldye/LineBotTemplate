@@ -56,9 +56,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	
-	//for _, result := range events.Results {
+	for _, result := range events.Results {
 		//content := result.Content()
-	//}
+	}
 	
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
