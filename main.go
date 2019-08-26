@@ -50,6 +50,24 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		return
 	}
+	
+	for _, result := range received.Results {
+		content := result.Content()
+		
+		if content != nil && content.ContentType == linebot.ContentTypeLocation {
+			//receive location
+			loc, err := content.LocationContent()
+			if err != nil {
+				log.Println(err)
+			}
+
+			if food[content.From] == "" {
+				//_, err = bot.SendText([]string{content.From},"想不到吃什麼，也可以直接'傳送目前位置訊息'")
+				food[content.From] = "food,restaurants"
+			}
+		}
+	}
+	
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
