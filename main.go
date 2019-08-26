@@ -51,6 +51,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	
+	for _, result := range events.Results {
+		content := result.Content()
+	}
+	
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
@@ -175,7 +179,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			case *linebot.LocationMessage:
 				bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("這裡好玩嗎?")).Do()
 			    
-				content := event.Results.Content()
+
 
 
 			case *linebot.ImageMessage:
