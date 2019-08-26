@@ -55,6 +55,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		content := result.Content()
 		
 		if content != nil && content.ContentType == linebot.ContentTypeLocation {
+			out := fmt.Sprintf("TEST 1")
+			bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
+			
 			//receive location
 			loc, err := content.LocationContent()
 			if err != nil {
@@ -77,6 +80,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					Longitude: null.FloatFrom(loc.Longitude),
 				},
 			}
+			
+			out := fmt.Sprintf("TEST 2")
+			bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 
 			// Perform the search using the search options
 			results, err := client.DoSearch(s)
@@ -87,6 +93,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				_, err = bot.SendImage([]string{content.From}, img, img)
 				delete(food, content.From)
 			}
+			
+			out := fmt.Sprintf("TEST 3")
+			bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 			
 			for j := 0; j < 3; j++ {
 				i := 0
@@ -114,7 +123,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			_, err = bot.SendImage([]string{content.From}, img, img)
 			delete(food, content.From)
 			
-			bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("TEST OK")).Do()
+			out := fmt.Sprintf("TEST 4")
+			bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 		}
 	}
 	
