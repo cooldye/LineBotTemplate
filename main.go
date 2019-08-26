@@ -57,7 +57,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	}
 	
 	for _, result := range events.Results {
-		content := result.Content()
+		//content := result.Content()
 	}
 	
 	for _, event := range events {
