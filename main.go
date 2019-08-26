@@ -65,6 +65,28 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				//_, err = bot.SendText([]string{content.From},"想不到吃什麼，也可以直接'傳送目前位置訊息'")
 				food[content.From] = "food,restaurants"
 			}
+			
+			// Build an advanced set of search criteria that include
+			// general options, and coordinate options.
+			s := yelp.SearchOptions{
+				GeneralOptions: &yelp.GeneralOptions{
+					Term: food[content.From],
+				},
+				CoordinateOptions: &yelp.CoordinateOptions{
+					Latitude:  null.FloatFrom(loc.Latitude),
+					Longitude: null.FloatFrom(loc.Longitude),
+				},
+			}
+
+			// Perform the search using the search options
+			results, err := client.DoSearch(s)
+			if err != nil {
+				log.Println(err)
+				_, err = bot.SendText([]string{content.From}, "查無資料！\n請重新輸入\n\n請問你想吃什麼?\nex:義大利麵\n\n想不到吃什麼，也可以直接'傳送目前位置訊息'\nex：")
+				var img = "http://imageshack.com/a/img921/318/DC21al.png"
+				_, err = bot.SendImage([]string{content.From}, img, img)
+				delete(food, content.From)
+			}
 		}
 	}
 	
