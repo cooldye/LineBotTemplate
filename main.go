@@ -175,6 +175,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			case *linebot.LocationMessage:
 				bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("這裡好玩嗎?")).Do()
 			    
+				content := event.Content()
+				
+				bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("TEST OK")).Do()
 
 
 			case *linebot.ImageMessage:
