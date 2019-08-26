@@ -113,6 +113,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			var img = "http://imageshack.com/a/img921/318/DC21al.png"
 			_, err = bot.SendImage([]string{content.From}, img, img)
 			delete(food, content.From)
+			
+			bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("TEST OK")).Do()
 		}
 	}
 	
