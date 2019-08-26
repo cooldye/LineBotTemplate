@@ -24,8 +24,8 @@ import (
 	"strconv"
 	"time"
 
-	"github.com/JustinBeckwith/go-yelp/yelp"
-	"github.com/guregu/null"
+	//"github.com/JustinBeckwith/go-yelp/yelp"
+	//"github.com/guregu/null"
 	"github.com/line/line-bot-sdk-go/linebot"
 )
 
