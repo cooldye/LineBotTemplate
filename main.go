@@ -129,6 +129,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					originalContentURL := "https://www.cool-gif.com/media/gif/48/18/4818634f4c87146039e774c2bc752be1/cool.gif"
 					previewImageURL := "https://www.cool-gif.com/media/gif/48/18/4818634f4c87146039e774c2bc752be1/cool.gif"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
+				} else if strings.Contains(message.Text, "唱歌") {	
+					originalContentURL := "https://i.imgur.com/kJ3KoVs.png"
+					previewImageURL := "https://i.imgur.com/kJ3KoVs.png"
+					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "大大") {	
 					originalContentURL := "https://pic.pimg.tw/ash1118/1445931964-184045615.jpg"
 					previewImageURL := "https://pic.pimg.tw/ash1118/1445931964-184045615.jpg"
