@@ -152,6 +152,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					originalContentURL := "https://vignette.wikia.nocookie.net/evchk/images/e/ec/2471912.jpg/revision/latest/scale-to-width-down/1000?cb=20171012125530"
 					previewImageURL := "https://vignette.wikia.nocookie.net/evchk/images/e/ec/2471912.jpg/revision/latest/scale-to-width-down/1000?cb=20171012125530"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
+				} else if strings.Contains(message.Text, "一個人") {
+					originalContentURL := "https://www.youtube.com/watch?v=gELloR2QiYM"
+					previewImageURL := "https://i.ytimg.com/vi/gELloR2QiYM/maxresdefault.jpg"
+					bot.ReplyMessage(event.ReplyToken, linebot.NewVideoMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "初音") {
 					originalContentURL := "https://s65.youmaker.com/flv/2014/2-14/mp4909826563a3583eddc78f4a5da9cf3bbdeffecf79065.mp4"
 					previewImageURL := "https://upload.wikimedia.org/wikipedia/zh/0/00/Miku_Hatsune.png"
