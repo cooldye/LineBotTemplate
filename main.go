@@ -76,7 +76,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					out := fmt.Sprintf("HELP")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "吃飯"){
-					out := fmt.Sprintf("https://www.foodpanda.com.tw/?gclid=EAIaIQobChMIkPvY7oLQ5QIVCGoqCh3N7QKGEAAYASAAEgJ8WPD_BwE")
+					out := fmt.Sprintf("https://www.foodpanda.com.tw")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "吃"){
 					rand.Seed(time.Now().UnixNano()) // Try changing this number!
