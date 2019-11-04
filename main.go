@@ -152,7 +152,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					originalContentURL := "https://vignette.wikia.nocookie.net/evchk/images/e/ec/2471912.jpg/revision/latest/scale-to-width-down/1000?cb=20171012125530"
 					previewImageURL := "https://vignette.wikia.nocookie.net/evchk/images/e/ec/2471912.jpg/revision/latest/scale-to-width-down/1000?cb=20171012125530"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
-				} else if strings.Contains(message.Text, "一個人") {
+				} else if strings.Contains(message.Text, "一個人") || strings.Contains(message.Text, "沒人一起")  || strings.Contains(message.Text, "沒人要一起") {
 					originalContentURL := "https://www.youtube.com/watch?v=gELloR2QiYM"
 					previewImageURL := "https://i.ytimg.com/vi/gELloR2QiYM/maxresdefault.jpg"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewVideoMessage(originalContentURL, previewImageURL)).Do()
