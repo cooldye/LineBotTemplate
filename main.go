@@ -81,11 +81,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					bot.ReplyMessage(replytoken,linebot.NewTextMessage("..")).Do()
 					end := time.Now()
 					result := fmt.Sprintf("%f [sec]",(end.Sub(start)).Seconds())
-					_,err := bot.PushMessage(re.Source.GroupID,linebot.NewTextMessage(result)).Do()
+					_,err := bot.PushMessage(event.Source.GroupID,linebot.NewTextMessage(result)).Do()
 					if err != nil{
-						_,err := bot.PushMessage(re.Source.RoomID,linebot.NewTextMessage(result)).Do()
+						_,err := bot.PushMessage(event.Source.RoomID,linebot.NewTextMessage(result)).Do()
 						if err != nil{
-							_,err := bot.PushMessage(re.Source.UserID,linebot.NewTextMessage(result)).Do()
+							_,err := bot.PushMessage(event.Source.UserID,linebot.NewTextMessage(result)).Do()
 							if err != nil{
 								log.Fatal(err)
 							}
