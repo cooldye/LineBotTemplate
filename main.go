@@ -75,6 +75,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				if strings.Contains(message.Text, "/help") || strings.Contains(message.Text, "/HELP") {
 					out := fmt.Sprintf("HELP")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
+				} else if strings.Contains(message.Text, "test"){
+					bot.ReplyMessage(re.ReplyToken,linebot.NewTextMessage(re.Source.UserID)).Do()
 				} else if strings.Contains(message.Text, "speed"){
 					replytoken := event.ReplyToken
 					start := time.Now()
