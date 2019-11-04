@@ -75,15 +75,17 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				if strings.Contains(message.Text, "/help") || strings.Contains(message.Text, "/HELP") {
 					out := fmt.Sprintf("HELP")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
+				/*
 				} else if strings.Contains(string(event.Source.UserID), "U54c79813d639c4ba3cffdb3d0987c99d"){
 					out := fmt.Sprintf("yoyoyo")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "test"){
 					bot.ReplyMessage(event.ReplyToken,linebot.NewTextMessage(event.Source.UserID)).Do()
+				*/
 				} else if strings.Contains(message.Text, "speed"){
 					replytoken := event.ReplyToken
 					start := time.Now()
-					bot.ReplyMessage(replytoken,linebot.NewTextMessage("..")).Do()
+					bot.ReplyMessage(replytoken,linebot.NewTextMessage("...")).Do()
 					end := time.Now()
 					result := fmt.Sprintf("%f [sec]",(end.Sub(start)).Seconds())
 					_,err := bot.PushMessage(event.Source.GroupID,linebot.NewTextMessage(result)).Do()
