@@ -75,6 +75,22 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				if strings.Contains(message.Text, "/help") || strings.Contains(message.Text, "/HELP") {
 					out := fmt.Sprintf("HELP")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
+				} else if strings.Contains(message.Text, "speed"){
+					replytoken := event.ReplyToken
+					start := time.Now()
+					bot.ReplyMessage(replytoken,linebot.NewTextMessage("..")).Do()
+					end := time.Now()
+					result := fmt.Sprintf("%f [sec]",(end.Sub(start)).Seconds())
+					_,err := bot.PushMessage(re.Source.GroupID,linebot.NewTextMessage(result)).Do()
+					if err != nil{
+						_,err := bot.PushMessage(re.Source.RoomID,linebot.NewTextMessage(result)).Do()
+						if err != nil{
+							_,err := bot.PushMessage(re.Source.UserID,linebot.NewTextMessage(result)).Do()
+							if err != nil{
+								log.Fatal(err)
+							}
+						}
+					}
 				} else if strings.Contains(message.Text, "吃飯"){
 					out := fmt.Sprintf("https://www.foodpanda.com.tw")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
