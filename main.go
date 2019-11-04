@@ -133,6 +133,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					originalContentURL := "https://i.imgur.com/kJ3KoVs.png"
 					previewImageURL := "https://i.imgur.com/kJ3KoVs.png"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
+					originalContentURL := "https://i.imgur.com/RPqvqOR.png"
+					previewImageURL := "https://i.imgur.com/RPqvqOR.png"
+					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "大大") {	
 					originalContentURL := "https://pic.pimg.tw/ash1118/1445931964-184045615.jpg"
 					previewImageURL := "https://pic.pimg.tw/ash1118/1445931964-184045615.jpg"
