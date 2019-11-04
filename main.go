@@ -133,9 +133,6 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					originalContentURL := "https://i.imgur.com/kJ3KoVs.png"
 					previewImageURL := "https://i.imgur.com/kJ3KoVs.png"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
-					originalContentURL := "https://i.imgur.com/RPqvqOR.png"
-					previewImageURL := "https://i.imgur.com/RPqvqOR.png"
-					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "大大") {	
 					originalContentURL := "https://pic.pimg.tw/ash1118/1445931964-184045615.jpg"
 					previewImageURL := "https://pic.pimg.tw/ash1118/1445931964-184045615.jpg"
@@ -149,8 +146,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					previewImageURL := "https://i.ytimg.com/vi/4pKMRvrW69s/hqdefault.jpg"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "???") {
-					originalContentURL := "https://dvblobcdnjp.azureedge.net//Content/Upload/Popular/Images/2017-06/e99e6b5e-ca6c-4c19-87b7-dfd63db6381a_m.jpg"
-					previewImageURL := "https://dvblobcdnjp.azureedge.net//Content/Upload/Popular/Images/2017-06/e99e6b5e-ca6c-4c19-87b7-dfd63db6381a_m.jpg"
+					originalContentURL := "https://vignette.wikia.nocookie.net/evchk/images/e/ec/2471912.jpg/revision/latest/scale-to-width-down/1000?cb=20171012125530"
+					previewImageURL := "https://vignette.wikia.nocookie.net/evchk/images/e/ec/2471912.jpg/revision/latest/scale-to-width-down/1000?cb=20171012125530"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "初音") {
 					originalContentURL := "https://s65.youmaker.com/flv/2014/2-14/mp4909826563a3583eddc78f4a5da9cf3bbdeffecf79065.mp4"
