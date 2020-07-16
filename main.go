@@ -132,10 +132,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 
 					bot.ReplyMessage(
 						event.ReplyToken, 
-						linebot.NewTextMessage(out).AddEmoji(
-							linebot.NewEmoji(0, "5ac1bfd5040ab15980c9b435", "221")
-						)
+						linebot.NewTextMessage(out)
 					).Do()
+
+					//.AddEmoji(linebot.NewEmoji(0, "5ac1bfd5040ab15980c9b435", "221"))
 				} else if strings.Contains(message.Text, "你好") || strings.Contains(message.Text, "妳好") {
 					out := fmt.Sprintf("你以為你是天線寶寶嗎?")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
