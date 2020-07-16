@@ -17,10 +17,12 @@ import (
 	//"io/ioutil"
 	"log"
 	"net/http"
+
 	//"net/url"
+	"math/rand"
 	"os"
 	"strings"
-	"math/rand"
+
 	//"strconv"
 	"time"
 
@@ -55,11 +57,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		}
 		return
 	}
-	
+
 	//for _, result := range events.Results {
-		//content := result.Content()
+	//content := result.Content()
 	//}
-	
+
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
 
@@ -76,33 +78,33 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				if strings.Contains(message.Text, "/help") || strings.Contains(message.Text, "/HELP") {
 					out := fmt.Sprintf("HELP")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
-				/*
-				} else if strings.Contains(string(event.Source.UserID), "U54c79813d639c4ba3cffdb3d0987c99d"){
-					out := fmt.Sprintf("yoyoyo")
-					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
-				} else if strings.Contains(message.Text, "test"){
-					bot.ReplyMessage(event.ReplyToken,linebot.NewTextMessage(event.Source.UserID)).Do()
-				*/
-				} else if strings.Contains(message.Text, "speed"){
+					/*
+						} else if strings.Contains(string(event.Source.UserID), "U54c79813d639c4ba3cffdb3d0987c99d"){
+							out := fmt.Sprintf("yoyoyo")
+							bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
+						} else if strings.Contains(message.Text, "test"){
+							bot.ReplyMessage(event.ReplyToken,linebot.NewTextMessage(event.Source.UserID)).Do()
+					*/
+				} else if strings.Contains(message.Text, "speed") {
 					replytoken := event.ReplyToken
 					start := time.Now()
-					bot.ReplyMessage(replytoken,linebot.NewTextMessage("...")).Do()
+					bot.ReplyMessage(replytoken, linebot.NewTextMessage("...")).Do()
 					end := time.Now()
-					result := fmt.Sprintf("%f [sec]",(end.Sub(start)).Seconds())
-					_,err := bot.PushMessage(event.Source.GroupID,linebot.NewTextMessage(result)).Do()
-					if err != nil{
-						_,err := bot.PushMessage(event.Source.RoomID,linebot.NewTextMessage(result)).Do()
-						if err != nil{
-							_,err := bot.PushMessage(event.Source.UserID,linebot.NewTextMessage(result)).Do()
-							if err != nil{
+					result := fmt.Sprintf("%f [sec]", (end.Sub(start)).Seconds())
+					_, err := bot.PushMessage(event.Source.GroupID, linebot.NewTextMessage(result)).Do()
+					if err != nil {
+						_, err := bot.PushMessage(event.Source.RoomID, linebot.NewTextMessage(result)).Do()
+						if err != nil {
+							_, err := bot.PushMessage(event.Source.UserID, linebot.NewTextMessage(result)).Do()
+							if err != nil {
 								log.Fatal(err)
 							}
 						}
 					}
-				} else if strings.Contains(message.Text, "吃飯"){
+				} else if strings.Contains(message.Text, "吃飯") {
 					out := fmt.Sprintf("https://www.foodpanda.com.tw")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
-				} else if strings.Contains(message.Text, "吃"){
+				} else if strings.Contains(message.Text, "吃") {
 					rand.Seed(time.Now().UnixNano()) // Try changing this number!
 					answers := []string{
 						"吃飯",
@@ -114,11 +116,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					}
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(answers[rand.Intn(len(answers))])).Do()
 				} else if strings.Contains(message.Text, "bye") || strings.Contains(message.Text, "哭") {
-					bot.ReplyMessage(event.ReplyToken,linebot.NewStickerMessage("3","187")).Do()
-				} else if strings.Contains(message.Text, "now"){
+					bot.ReplyMessage(event.ReplyToken, linebot.NewStickerMessage("3", "187")).Do()
+				} else if strings.Contains(message.Text, "now") {
 					now := time.Now()
 					out := now.Format(time.RFC3339)
-					bot.ReplyMessage(event.ReplyToken,linebot.NewTextMessage(out)).Do()
+					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "到了") {
 					//IP := event.ReplyToken
 					out := fmt.Sprintf("胡了! 大三元、混一色、對對胡、北風、無字無花、平胡...106台!!")
@@ -128,7 +130,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 
 					out := fmt.Sprintf("I Love You, too ")
 
-					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out).AddEmoji(linebot.NewEmoji(0, "5ac1bfd5040ab15980c9b435", "221")).Do()
+					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out).AddEmoji(linebot.NewEmoji(0, "5ac1bfd5040ab15980c9b435", "221"))).Do()
 				} else if strings.Contains(message.Text, "你好") || strings.Contains(message.Text, "妳好") {
 					out := fmt.Sprintf("你以為你是天線寶寶嗎?")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
@@ -144,7 +146,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						out := fmt.Sprintf("(02) 8178-3177 \n 梁韡峻 ext.12325 \n 翁誠鴻 ext.12332 \n 黃雋幃 ext.12371")
 						bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 					}
-					
+
 				} else if strings.Contains(message.Text, "幾點了") {
 					out := fmt.Sprintf("不知道")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
@@ -154,15 +156,15 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if strings.Contains(message.Text, "姆咪姆咪") {
 					out := fmt.Sprintf("心動動")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
-				} else if strings.Contains(message.Text, "好了") || strings.Contains(message.Text, "好惹") || strings.Contains(message.Text, "水喔"){		
+				} else if strings.Contains(message.Text, "好了") || strings.Contains(message.Text, "好惹") || strings.Contains(message.Text, "水喔") {
 					originalContentURL := "https://www.cool-gif.com/media/gif/48/18/4818634f4c87146039e774c2bc752be1/cool.gif"
 					previewImageURL := "https://www.cool-gif.com/media/gif/48/18/4818634f4c87146039e774c2bc752be1/cool.gif"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
-				} else if strings.Contains(message.Text, "唱歌") {	
+				} else if strings.Contains(message.Text, "唱歌") {
 					originalContentURL := "https://i.imgur.com/kJ3KoVs.png"
 					previewImageURL := "https://i.imgur.com/kJ3KoVs.png"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
-				} else if strings.Contains(message.Text, "大大") {	
+				} else if strings.Contains(message.Text, "大大") {
 					originalContentURL := "https://pic.pimg.tw/ash1118/1445931964-184045615.jpg"
 					previewImageURL := "https://pic.pimg.tw/ash1118/1445931964-184045615.jpg"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
@@ -170,7 +172,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					originalContentURL := "https://pic.pimg.tw/chenwei389/1448377600-433737766_n.jpg"
 					previewImageURL := "https://pic.pimg.tw/chenwei389/1448377600-433737766_n.jpg"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
-				} else if strings.Contains(message.Text, "表示:") {	
+				} else if strings.Contains(message.Text, "表示:") {
 					originalContentURL := "https://i.ytimg.com/vi/4pKMRvrW69s/hqdefault.jpg"
 					previewImageURL := "https://i.ytimg.com/vi/4pKMRvrW69s/hqdefault.jpg"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
@@ -178,7 +180,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					originalContentURL := "https://vignette.wikia.nocookie.net/evchk/images/e/ec/2471912.jpg/revision/latest/scale-to-width-down/1000?cb=20171012125530"
 					previewImageURL := "https://vignette.wikia.nocookie.net/evchk/images/e/ec/2471912.jpg/revision/latest/scale-to-width-down/1000?cb=20171012125530"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
-				} else if strings.Contains(message.Text, "一個人") || strings.Contains(message.Text, "沒人一起")  || strings.Contains(message.Text, "沒人要一起") {
+				} else if strings.Contains(message.Text, "一個人") || strings.Contains(message.Text, "沒人一起") || strings.Contains(message.Text, "沒人要一起") {
 					originalContentURL := "https://www.youtube.com/watch?v=gELloR2QiYM"
 					previewImageURL := "https://i.ytimg.com/vi/gELloR2QiYM/maxresdefault.jpg"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewVideoMessage(originalContentURL, previewImageURL)).Do()
@@ -186,8 +188,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					originalContentURL := "https://s65.youmaker.com/flv/2014/2-14/mp4909826563a3583eddc78f4a5da9cf3bbdeffecf79065.mp4"
 					previewImageURL := "https://upload.wikimedia.org/wikipedia/zh/0/00/Miku_Hatsune.png"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewVideoMessage(originalContentURL, previewImageURL)).Do()
-				} else if strings.Contains(message.Text, "去哪") || strings.Contains(message.Text, "好玩"){
-					bot.ReplyMessage(event.ReplyToken,linebot.NewLocationMessage(
+				} else if strings.Contains(message.Text, "去哪") || strings.Contains(message.Text, "好玩") {
+					bot.ReplyMessage(event.ReplyToken, linebot.NewLocationMessage(
 						"Disney Resort",
 						"〒279-0031 千葉県浦安市舞浜１−１",
 						35.632211,
@@ -217,12 +219,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("Lucy:"+message.Text+" Aye")).Do() //message.ID
 			}*/
 			//----------------------------------------------------------------------
-				
+
 			case *linebot.LocationMessage:
 				bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage("這裡好玩嗎?")).Do()
-			    
-
-
 
 			case *linebot.ImageMessage:
 				//if message.ID == "RS232.jpg" {
