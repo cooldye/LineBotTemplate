@@ -62,6 +62,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 	
 	for _, event := range events {
 		if event.Type == linebot.EventTypeMessage {
+
+			let replyMsg
+
 			switch message := event.Message.(type) {
 
 			case *linebot.TextMessage:
@@ -124,8 +127,25 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "愛你") || strings.Contains(message.Text, "愛妳") {
 					//IP := event.ReplyToken
-					out := fmt.Sprintf("I Love you, too")
-					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(event.ReplyToken+" : "+out)).Do()
+
+					replyMsg = {
+						"type": "text",
+						"text": "$ I Love you, too $", //
+						"emojis": [
+						  {
+							"index": 0,
+							"productId": "5ac1bfd5040ab15980c9b435",
+							"emojiId": "215"
+						  },
+						  {
+							"index": 13,
+							"productId": "5ac1bfd5040ab15980c9b435",
+							"emojiId": "221"
+						  }
+						]
+					  }
+
+					bot.ReplyMessage(event.ReplyToken, replyMsg).Do()
 				} else if strings.Contains(message.Text, "你好") || strings.Contains(message.Text, "妳好") {
 					out := fmt.Sprintf("你以為你是天線寶寶嗎?")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
