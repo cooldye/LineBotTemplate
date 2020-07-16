@@ -128,9 +128,14 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if strings.Contains(message.Text, "愛你") || strings.Contains(message.Text, "愛妳") {
 					//IP := event.ReplyToken
 
-					out := fmt.Sprintf("I Love You, too ")
+					out := fmt.Sprintf("I Love You, too $")
 
-					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out).AddEmoji(linebot.NewEmoji(0, "5ac1bfd5040ab15980c9b435", "221"))).Do()
+					bot.ReplyMessage(
+						event.ReplyToken, 
+						linebot.NewTextMessage(out).AddEmoji(
+							linebot.NewEmoji(0, "5ac1bfd5040ab15980c9b435", "221")
+						)
+					).Do()
 				} else if strings.Contains(message.Text, "你好") || strings.Contains(message.Text, "妳好") {
 					out := fmt.Sprintf("你以為你是天線寶寶嗎?")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
