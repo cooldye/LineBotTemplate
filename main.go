@@ -139,7 +139,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if strings.Contains(message.Text, "幹") {
 					out := fmt.Sprintf("尛")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
-				} else if strings.Contains(message.Text, "成員資料") {
+				} else if strings.Contains(message.Text, "成員資料1") {
 					out := fmt.Sprintf("姓名:周義淳 \n性別:男 \n年次:民國79年 \n工作年資:6年 \n學歷:黎明技術學院 資訊工程系 \n專長:LINUX \n嗜好:看電影、打電動 \n優點:樂觀、負責 \n缺點:本人說太月半 \n工作目標:守護運維的和平")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "王道") {
