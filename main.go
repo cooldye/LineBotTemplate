@@ -140,7 +140,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					out := fmt.Sprintf("尛")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "成員資料") {
-					out := fmt.Sprintf("姓名:周義淳 \n 性別:男 \n 年次:民國79年 \n 工作年資:6年 \n 學歷:黎明技術學院 資訊工程系 \n 專長:LINUX \n 嗜好:看電影、打電動 \n 優點:樂觀、負責 \n 缺點:本人說太月半 \n 工作目標:扛起運為的重擔")
+					out := fmt.Sprintf("姓名:周義淳 \n性別:男 \n年次:民國79年 \n工作年資:6年 \n學歷:黎明技術學院 資訊工程系 \n專長:LINUX \n嗜好:看電影、打電動 \n優點:樂觀、負責 \n缺點:本人說太月半 \n工作目標:扛起運維的重擔")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "王道") {
 					if strings.Contains(message.Text, "環境") {
