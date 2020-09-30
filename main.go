@@ -139,6 +139,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if strings.Contains(message.Text, "幹") {
 					out := fmt.Sprintf("尛")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
+				} else if strings.Contains(message.Text, "成員分類") {	
+					out := fmt.Sprintf("有害的:工作愛做不做，愛抱怨，和自己不相關的事不願意做 \n平庸的:安排做什麼就做什麼，沒安排就不做，等著事情過來的人 \n極好的:發自內心做事，做事有條理、認真負責，真心為公司操心的 \n")
+					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "成員資料") {
 					out := fmt.Sprintf("姓名:周義淳 \n性別:男 \n年次:民國79年 \n工作年資:6年 \n學歷:黎明技術學院 資訊工程系 \n專長:LINUX \n嗜好:看電影、打電動 \n優點:樂觀、負責 \n缺點:本人說太月半 \n工作目標:守護運維的和平 \n\n姓名:張智綱 \n性別:男 \n年次:民國80年 \n工作年資:5年 \n學歷:龍華科技大學 資訊管理系 \n專長:LINUX \n嗜好:聽音樂 \n優點:細心、認真 \n缺點:嗓門大 \n工作目標:抵禦APP TEAM的騷擾")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
