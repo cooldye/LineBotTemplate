@@ -139,6 +139,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if strings.Contains(message.Text, "幹") {
 					out := fmt.Sprintf("尛")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
+				} else if strings.Contains(message.Text, "Elton Worksheet") {
+					out := fmt.Sprintf("https://drive.google.com/file/d/1Mv7Gjt1ib7m3YaZQajq4sfW9ET_5JHeR/view?usp=sharing")
+					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
 				} else if strings.Contains(message.Text, "成員分類") {	
 					out := fmt.Sprintf("有害的:工作愛做不做，愛抱怨，和自己不相關的事不願意做 \n平庸的:安排做什麼就做什麼，沒安排就不做，等著事情過來的人 \n極好的:發自內心做事，做事有條理、認真負責，真心為公司操心的 \n")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
