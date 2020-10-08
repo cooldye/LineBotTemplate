@@ -139,6 +139,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if strings.Contains(message.Text, "幹") {
 					out := fmt.Sprintf("尛")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
+				} else if strings.Contains(message.Text, "功課") {
+					originalContentURL := "https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D600%2C800/sign=d4257a7f07d162d985bb6a1a21ef85d4/d50735fae6cd7b89487c0e38022442a7d9330e7c.jpg"
+					previewImageURL := "https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D600%2C800/sign=d4257a7f07d162d985bb6a1a21ef85d4/d50735fae6cd7b89487c0e38022442a7d9330e7c.jpg"
+					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "Elton Worksheet") {
 					out := fmt.Sprintf("https://drive.google.com/file/d/1Mv7Gjt1ib7m3YaZQajq4sfW9ET_5JHeR/view?usp=sharing")
 					bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(out)).Do()
