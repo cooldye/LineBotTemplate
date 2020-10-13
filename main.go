@@ -144,7 +144,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					previewImageURL := "https://gss0.baidu.com/-fo3dSag_xI4khGko9WTAnF6hhy/zhidao/wh%3D600%2C800/sign=d4257a7f07d162d985bb6a1a21ef85d4/d50735fae6cd7b89487c0e38022442a7d9330e7c.jpg"
 					bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
 				} else if strings.Contains(message.Text, "書凱") {
-					if strings.Contains(message.Text, "謝") || strings.EqualFold(message.Text, "thanks") || strings.EqualFold(message.Text, "thx") {
+					if strings.Contains(message.Text, "謝") || strings.Contains(message.Text, "thanks") || strings.Contains(message.Text, "thx") {
 						originalContentURL := "https://hkchen.tech/images/shukae.png"
 						previewImageURL := "https://hkchen.tech/images/shukae.png"
 						bot.ReplyMessage(event.ReplyToken, linebot.NewImageMessage(originalContentURL, previewImageURL)).Do()
